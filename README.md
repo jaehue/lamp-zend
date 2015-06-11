@@ -4,7 +4,7 @@
 ### docker build
 
 ```
-$ docker build --force-rm=true -t lamp_zend .
+$ docker build --force-rm=true -t lamp-zend .
 ```
 
 ### docker run
@@ -12,8 +12,8 @@ $ docker build --force-rm=true -t lamp_zend .
 ```
 $ docker run -d -p 80:80 -p 3306:3306 \
   -e MYSQL_PASS="password" \
-  -v $(pwd)/app:/home/app \
-  lamp_zend
+  -v $(pwd)/app:/app \
+  lamp-zend
 ```
 
 ## Zend framework
