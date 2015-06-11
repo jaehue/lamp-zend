@@ -1,6 +1,6 @@
 FROM tutum/lamp
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install php5 php5-cli php5-gd php-pear php5-curl curl lynx lynx-cur vim htop wget
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install php5 php5-cli php5-gd php-pear php5-curl curl lynx lynx-cur vim htop wget sqlite3 php5-sqlite php-mdb2-driver-sqlite
 
 # Instal composer
 RUN curl -sS "https://getcomposer.org/installer" | php -- --install-dir=/usr/local/bin --filename=composer 
