@@ -21,4 +21,7 @@ RUN sed -ie 's/\;date\.timezone\ \=/date\.timezone\ \=\ Asia\/Seoul/g' /etc/php5
 RUN sed -i "s/;include_path = \"\.:.*/include_path = \".:\/usr\/share\/php:\/home\/ZendFramework-1.12.7\/library\"/" /etc/php5/apache2/php.ini 
 RUN sed -i "s/error_reporting = .*$/error_reporting = E_ALL \& ~E_NOTICE \& ~E_STRICT \& ~E_DEPRECATED/" /etc/php5/apache2/php.ini 
 
-VOLUME "/app"
+RUN echo "alias zf=/home/ZendFramework-1.12.7/bin/zf.sh" >> /root/.bashrc
+
+VOLUME "/home/app"
+WORKDIR "/home/app"
