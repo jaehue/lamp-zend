@@ -3,7 +3,7 @@
 class Application_Model_GuestbookMapper
 {
     protected $_dbTable;
- 
+
     public function setDbTable($dbTable)
     {
         if (is_string($dbTable)) {
@@ -15,7 +15,7 @@ class Application_Model_GuestbookMapper
         $this->_dbTable = $dbTable;
         return $this;
     }
- 
+
     public function getDbTable()
     {
         if (null === $this->_dbTable) {
@@ -23,7 +23,7 @@ class Application_Model_GuestbookMapper
         }
         return $this->_dbTable;
     }
- 
+
     public function save(Application_Model_Guestbook $guestbook)
     {
         $data = array(
@@ -31,7 +31,7 @@ class Application_Model_GuestbookMapper
             'comment' => $guestbook->getComment(),
             'created' => date('Y-m-d H:i:s'),
         );
- 
+
         if (null === ($id = $guestbook->getId())) {
             unset($data['id']);
             $this->getDbTable()->insert($data);
@@ -39,7 +39,7 @@ class Application_Model_GuestbookMapper
             $this->getDbTable()->update($data, array('id = ?' => $id));
         }
     }
- 
+
     public function find($id, Application_Model_Guestbook $guestbook)
     {
         $result = $this->getDbTable()->find($id);
@@ -52,7 +52,7 @@ class Application_Model_GuestbookMapper
                   ->setComment($row->comment)
                   ->setCreated($row->created);
     }
- 
+
     public function fetchAll()
     {
         $resultSet = $this->getDbTable()->fetchAll();
@@ -67,7 +67,5 @@ class Application_Model_GuestbookMapper
         }
         return $entries;
     }
-}
-
 }
 
