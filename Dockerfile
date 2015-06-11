@@ -23,5 +23,5 @@ RUN sed -i "s/error_reporting = .*$/error_reporting = E_ALL \& ~E_NOTICE \& ~E_S
 
 RUN echo "alias zf=/home/ZendFramework-1.12.7/bin/zf.sh" >> /root/.bashrc
 
-VOLUME "/home/app"
-WORKDIR "/home/app"
+VOLUME "/app"
+WORKDIR "/app"
